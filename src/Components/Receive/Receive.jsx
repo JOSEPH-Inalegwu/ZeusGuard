@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 const Receive = () => {
   const [modalOpen, setModalOpen] = useState(false); // State to control modal visibility
   const exampleAddress = '1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa'; 
-  const qrCodeImageUrl = '/src/Images/QRcode.png'; 
+  const qrCodeImageUrl = '/src/Images/qr-code.png'; 
 
   const handleCopyAddress = () => {
     navigator.clipboard.writeText(exampleAddress);
@@ -49,21 +49,30 @@ const Receive = () => {
             </div>
           </div>
 
-          <div className="flex justify-center items-center mt-4">
-            <img src={qrCodeImageUrl} alt="QR Code" className="w-48 h-48" />
-          </div>
+          <div className='flex flex-col justify-center items-center '>
+            <div
+              className="flex justify-center items-center"
+              style={{
+                backgroundImage: `url('/src/Images/qr-border-removebg-preview.png')`,
+                backgroundSize: 'cover',
+                backgroundRepeat: 'no-repeat',
+                height: '370px',
+                width: '370px' 
+              }}
+            >
+              <img src={qrCodeImageUrl} alt="QR Code" className="w-48 h-48 relative z-0" /> 
+            </div>
 
-          <div className="mt-4 flex justify-center space-x-4">
-            <button onClick={handleCopyQRCode} className="px-4 py-2 text-white bg-green-600 rounded-md hover:bg-green-500">Copy QR Code URL</button>
-            <button onClick={handleDownloadQRCode} className="px-4 py-2 text-white bg-orange-600 rounded-md hover:bg-orange-500">Download QR Code</button>
+            <div className="space-x-5">
+              <button onClick={handleCopyQRCode} className="px-4 py-2 text-white bg-green-600 rounded-md hover:bg-green-500">Copy QR Code URL</button>
+              <button onClick={handleDownloadQRCode} className="px-4 py-2 text-white bg-orange-600 rounded-md hover:bg-orange-500">Download QR Code</button>
+            </div>
           </div>
 
           {/* Receive History Section */}
           <div className="mt-10">
             <h3 className="text-lg font-semibold text-gray-700 dark:text-white">Receive History</h3>
             <ul className="mt-4 space-y-2">
-              {/* Example history items */}
-              {/* Replace this with actual history data if needed */}
               <li className="flex justify-between p-4 bg-gray-100 rounded-md dark:bg-gray-800">
                 <div>
                   <p className="text-gray-800 dark:text-gray-300">{exampleAddress}</p>

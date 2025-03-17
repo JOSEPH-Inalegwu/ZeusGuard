@@ -8,7 +8,7 @@ const Account = () => {
         <div className="space-y-3">
           <h2 className="text-2xl text-green-500 font-semibold">My Wallet</h2>
 
-          <h1 className="text-3xl font-bold">$2159,34</h1>
+          <h1 className="text-3xl font-bold">$42,934</h1>
         </div>
 
         {/* Transaction Options */}
