@@ -6,6 +6,7 @@ import Layout from '../Layout.jsx'
 import Home from './Components/Home/Home.jsx'
 import Send from './Components/Send/Send.jsx'
 import Receive from './Components/Receive/Receive.jsx'
+import Buy from './Components/Buy/Buy.jsx'
 import Login from './Components/Login/Login.jsx'
 import Wallet from './Components/Wallet/Wallet.jsx'
 
@@ -19,6 +20,7 @@ const router = createBrowserRouter([
       { path: "", element: <Home /> },
       { path: "send", element: <Send /> },
       { path: "receive", element: <Receive /> },
+      { path: "buy", element: <Buy /> },
       { path: "wallet", element: <Wallet /> }
     ]
   }

@@ -37,7 +37,7 @@ const Account = () => {
             <p>Receive</p>
           </Link>
 
-          <div className="text-center space-y-1 cursor-pointer">
+          <Link to='/app/buy' className="text-center space-y-1 cursor-pointer">
             <div className="bg-black/60 rounded-full p-3 hover:bg-black/80 hover:scale-105 transition-smooth duration-300">
               <img
                 src="/src/assets/wallet.svg"
@@ -47,7 +47,7 @@ const Account = () => {
               />
             </div>
             <p>Buy</p>
-          </div>
+          </Link>
 
           <div className="text-center space-y-1 cursor-pointer">
             <div className="bg-black/60 rounded-full p-3 hover:bg-black/80 hover:scale-105 transition-smooth duration-300">
