@@ -1,5 +1,6 @@
 import React from 'react'
 import WalletCoinsProp from './WalletCoinsProp'
+import Withdrawal from './Withdrawal'
 
 const Wallet = () => {
   return (
@@ -43,42 +44,50 @@ const Wallet = () => {
         </div>
       </div>
 
-      <div className='container w-4/5 mx-auto dark:bg-base-200  mt-2 px-6 py-4 space-y-3 border border-black/10 rounded-sm shadow-2xs'>
-        <WalletCoinsProp 
-          name='BTC'
-          image='/src/assets/bitcoin.svg'
-          color={'bg-yellow-600'}
-          time='06:30 AM'
-          increase='+ BTC 0.0089'
-          decrease='-0.0003'
-        />
+      <div className='container w-4/5 mx-auto flex mt-2 space-x-12'>
+        {/* Coins Received */}
+        <div className='w-2/3 dark:bg-base-200 mt-2 px-2 py-4 space-y-3 border border-black/10 rounded-sm shadow-2xs'>
+          <WalletCoinsProp 
+            name='BTC'
+            image='/src/assets/bitcoin.svg'
+            color={'bg-yellow-600'}
+            time='06:30 AM'
+            increase='+ BTC 0.0089'
+            decrease='-0.0003'
+          />
 
-        <WalletCoinsProp 
-          name='ETH'
-          image='/src/assets/etherium.svg'
-          color={'bg-blue-500'}
-          time='12:00 AM'
-          increase='+ ETH 1,498'
-          decrease='-0.0005'
-        />
+          <WalletCoinsProp 
+            name='ETH'
+            image='/src/assets/etherium.svg'
+            color={'bg-blue-500'}
+            time='12:00 AM'
+            increase='+ ETH 1,498'
+            decrease='-0.0005'
+          />
 
-        <WalletCoinsProp 
-          name='SHB'
-          image='/src/assets/shiba.svg'
-          color={'bg-red-500'}
-          time='11:22 PM'
-          increase='+ SHB 2,018'
-          decrease='-0.0008'
-        />
+          <WalletCoinsProp 
+            name='SHB'
+            image='/src/assets/shiba.svg'
+            color={'bg-red-500'}
+            time='11:22 PM'
+            increase='+ SHB 2,018'
+            decrease='-0.0008'
+          />
 
-        <WalletCoinsProp 
-          name='ATOM'
-          image='/src/assets/cosmos.svg'
-          color={'bg-slate-800'}
-          time='14:51 PM'
-          increase='+ ATOM 3,900'
-          decrease='-0.00031'
-        />
+          <WalletCoinsProp 
+            name='ATOM'
+            image='/src/assets/cosmos.svg'
+            color={'bg-slate-800'}
+            time='14:51 PM'
+            increase='+ ATOM 3,900'
+            decrease='-0.00031'
+          />
+        </div>
+
+        {/* Withdrawal Option */}
+        <div className='w-2/3'>
+          <Withdrawal />
+        </div>
       </div>
     </>
   )
