@@ -111,7 +111,7 @@ const Send = () => {
                   />
                   <p>High</p>
                 </div>
-                <p>B 0.00000100</p>
+                <p>B 0.00000300</p>
                 <p>10 - 20 mins</p>
               </div>
 
@@ -126,7 +126,7 @@ const Send = () => {
                   />
                   <p>Medium</p>
                 </div>
-                <p>B 0.00000100</p>
+                <p>B 0.00000200</p>
                 <p>20 - 60 mins</p>
               </div>
 
