@@ -1,2 +1,24 @@
 @import "tailwindcss";
 @plugin "daisyui";
+
+.main-content {
+  display: none;
+}
+
+.mobile-message {
+  display: block;
+  margin: 50% auto;
+  transform: translateY(-50%, -50%);
+  text-align: center; 
+}
+
+/* Media query to display content on larger screens */
+@media (min-width: 1024px) {
+  .mobile-message {
+    display: none;
+  }
+
+  .main-content {
+    display: block; 
+  }
+}
