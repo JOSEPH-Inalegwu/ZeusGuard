@@ -46,12 +46,25 @@ const BuyCryptoSection = () => {
     setIsBuying(true);
   
     setTimeout(() => {
+      // Get current balance
+      let currentBalance = parseFloat(localStorage.getItem("accountBalance")) || 45934;
+  
+      // Subtract $300 if the user has enough balance
+      if (currentBalance >= 200) {
+        currentBalance -= 300;
+        localStorage.setItem("accountBalance", currentBalance.toString()); // Save updated balance
+      } else {
+        alert("Insufficient funds!");
+        setIsBuying(false);
+        return;
+      }
+  
       const newPurchase = {
         broker: selectedBroker,
         method: buyMethod,
         coin: selectedCoin,
         amount,
-        timestamp: Date.now(), 
+        timestamp: Date.now(),
       };
   
       const updatedHistory = [newPurchase, ...buyHistory];
@@ -59,14 +72,14 @@ const BuyCryptoSection = () => {
       localStorage.setItem("buyHistory", JSON.stringify(updatedHistory));
   
       setIsBuying(false);
-      alert(`Successfully bought ${amount} ${selectedCoin}.`);
+      alert(`Successfully bought ${amount} ${selectedCoin}. New balance: $${currentBalance}`);
   
       setAmount("");
       setPin("");
     }, 2000);
   };
   
-
+  
   return (
     <section className="mt-6">
       <div className="flex items-center space-x-10">
