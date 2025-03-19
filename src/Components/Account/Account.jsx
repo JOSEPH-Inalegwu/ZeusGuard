@@ -21,28 +21,28 @@ const Account = () => {
       <div className="mt-6 flex items-center justify-between mx-20">
         <Link to="/app/send" className="text-center space-y-1 cursor-pointer">
           <div className="bg-black/60 rounded-full p-3 hover:bg-black/80 hover:scale-105 transition-smooth duration-300">
-            <img src="/src/assets/send.svg" alt="Send" className="w-10 transform rotate-180" width="40" />
+            <img src="src/assets/send.svg" alt="Send" className="w-10 transform rotate-180" width="40" />
           </div>
           <p>Send</p>
         </Link>
 
         <Link to="/app/receive" className="text-center space-y-1 cursor-pointer">
           <div className="bg-black/60 rounded-full p-3 hover:bg-black/80 hover:scale-105 transition-smooth duration-300">
-            <img src="/src/assets/send.svg" alt="Send" className="w-10 transform rotate-180" width="40" />
+            <img src="src/assets/send.svg" alt="Send" className="w-10 transform rotate-180" width="40" />
           </div>
           <p>Receive</p>
         </Link>
 
         <Link to="/app/buy" className="text-center space-y-1 cursor-pointer">
           <div className="bg-black/60 rounded-full p-3 hover:bg-black/80 hover:scale-105 transition-smooth duration-300">
-            <img src="/src/assets/wallet.svg" alt="Send" className="w-10 transform rotate-180" width="40" />
+            <img src="src/assets/wallet.svg" alt="Send" className="w-10 transform rotate-180" width="40" />
           </div>
           <p>Buy</p>
         </Link>
 
         <div className="text-center space-y-1 cursor-pointer">
           <div className="bg-black/60 rounded-full p-3 hover:bg-black/80 hover:scale-105 transition-smooth duration-300">
-            <img src="/src/assets/coin2.svg" alt="Send" className="w-10 transform rotate-180" width="40" />
+            <img src="src/assets/coin2.svg" alt="Send" className="w-10 transform rotate-180" width="40" />
           </div>
           <p>Earn</p>
         </div>
