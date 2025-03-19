@@ -2,7 +2,7 @@ import React from 'react';
 import { Outlet } from 'react-router-dom';
 import TopBar from './src/Components/TopBar/TopBar';
 import Header from './src/Components/Header/Header';
-import mobileWarningImage from './crying_face-removebg-preview.png'; 
+import mobileWarningImage from '/crying_face-removebg-preview.png'; 
 
 const Layout = () => {
   return (
