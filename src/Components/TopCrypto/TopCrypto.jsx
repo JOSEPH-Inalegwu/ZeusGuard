@@ -12,7 +12,7 @@ const TopCrypto = () => {
           <TopCryptoProp
             name="Bitcoin"
             symbol="BTC"
-            image={'src/Assets/bitcoin.svg'}  
+            image={'/bitcoin.svg'}  
             price={30780}
             percentage="11.75%"
             style={'bg-gradient-to-r from-blue-500 to-purple-700'}
@@ -25,7 +25,7 @@ const TopCrypto = () => {
           <TopCryptoProp
             name="Binance"
             symbol="BNB"
-            image={'src/assets/binance.svg'}
+            image={'/binance.svg'}
             price={270.10}
             percentage="21.59%"
             style={'bg-gradient-to-r from-green-400 to-green-700'}
@@ -38,7 +38,7 @@ const TopCrypto = () => {
           <TopCryptoProp
             name="Ethereum"
             symbol="ETH"
-            image={'src/assets/etherium.svg'}
+            image={'/etherium.svg'}
             price={1478.10}
             percentage="4.75%"
             style={'bg-gradient-to-r from-blue-700 to-blue-500'}

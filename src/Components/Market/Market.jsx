@@ -10,7 +10,7 @@ const Market = () => {
   <div className="space-y-4 mb-4">
 
     <div className="flex space-x-2">
-      <img  src="src/assets/star.svg" 
+      <img  src="/star.svg" 
         className="w-6"
       />
 
@@ -44,7 +44,7 @@ const Market = () => {
       price="2,980.09"
       gradient="bg-blue-500"
       symbol="ETH"
-      image="src/assets/etherium.svg" 
+      image="/etherium.svg" 
       percentageChange="bg-red-500"
     />  
 
@@ -54,7 +54,7 @@ const Market = () => {
       price="380.09"
       gradient="bg-yellow-500"
       symbol="BNB"
-      image="src/assets/binance.svg" 
+      image="/binance.svg" 
       percentageChange="bg-green-500"
     />  
 
@@ -64,7 +64,7 @@ const Market = () => {
       price="380.09"
       gradient="bg-blue-900"
       symbol="SOL"
-      image="src/assets/solana.svg" 
+      image="/solana.svg" 
       percentageChange="bg-green-500"
     />  
 
@@ -74,7 +74,7 @@ const Market = () => {
       price="2,980.09"
       gradient="bg-pink-400"
       symbol="DOT"
-      image="src/assets/polkadot.svg" 
+      image="/polkadot.svg" 
       percentageChange="bg-red-500"
     />  
 
@@ -84,7 +84,7 @@ const Market = () => {
       price="0.000038"
       gradient="bg-red-600"
       symbol="SHIB"
-      image="src/assets/shiba.svg" 
+      image="/shiba.svg" 
       percentageChange="bg-green-500"
     />
 
@@ -94,7 +94,7 @@ const Market = () => {
       price="0.67"
       gradient="bg-slate-400"
       symbol="XRP"
-      image="src/assets/xrp.svg" 
+      image="/xrp.svg" 
       percentageChange="bg-green-500"
     />
 
@@ -104,7 +104,7 @@ const Market = () => {
       price="1.00"
       gradient="bg-teal-700"
       symbol="USDT"
-      image="src/assets/tether.svg" 
+      image="/tether.svg" 
       percentageChange="bg-green-500"
     />
 

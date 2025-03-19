@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 const Receive = () => {
   const [modalOpen, setModalOpen] = useState(false); // State to control modal visibility
   const exampleAddress = '1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa'; 
-  const qrCodeImageUrl = '/src/Images/qr-code.png'; 
+  const qrCodeImageUrl = '/qr-code.png'; 
 
   const handleCopyAddress = () => {
     navigator.clipboard.writeText(exampleAddress);

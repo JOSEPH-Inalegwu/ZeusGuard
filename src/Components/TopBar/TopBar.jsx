@@ -36,7 +36,7 @@ const TopBar = () => {
             className="text-sm w-full outline-none"
           />
           <img
-            src="/src/assets/searchIcon.svg"
+            src="/searchIcon.svg"
             alt="Search Icon"
             className="w-5 h-5 ml-2"
           />
@@ -49,7 +49,7 @@ const TopBar = () => {
             <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
               <div className="indicator">
                 <img
-                  src="/src/assets/bell.svg"
+                  src="/bell.svg"
                   alt=""
                   className="w-6"
                 />
@@ -70,7 +70,7 @@ const TopBar = () => {
           </div>
           {/* Gift Icon */}
           <div>
-            <img src="/src/assets/gift.svg"
+            <img src="/gift.svg"
               alt=""
               className="w-7"
             />

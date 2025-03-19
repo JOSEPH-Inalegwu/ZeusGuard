@@ -40,7 +40,7 @@ const Login = () => {
         <div className="flex justify-center mx-auto">
           <img
             className="w-24 h-24 p-1 border border-green-500 bg-gradient-to-l from-green-500 to-blue-500 rounded-full"
-            src="src/Images/logo-removebg-preview.png"
+            src="/logo-removebg-preview.png"
             alt=""
           />
         </div>
