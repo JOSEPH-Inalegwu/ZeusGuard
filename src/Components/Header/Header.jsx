@@ -30,14 +30,14 @@ const Header = () => {
           <NavLink
             to="" 
           >
-            <img src="src/Images/icons8-exchange-96.png" alt="" className="w-6" />
+            <img src="/icons8-exchange-96.png" alt="" className="w-6" />
             <p className="text-sm">Exchange</p>
           </NavLink>
 
           <NavLink
             to="" 
           >
-            <img src="src/Images/icons8-cash-in-hand-96.png" alt="" className="w-6" />
+            <img src="/icons8-cash-in-hand-96.png" alt="" className="w-6" />
             <p className="text-sm">Earn</p>
           </NavLink>
 
@@ -45,7 +45,7 @@ const Header = () => {
             to="/app/wallet" 
             className={({ isActive }) => `flex flex-col items-center cursor-pointer ${isActive ? 'text-green-500 font-bold' : 'text-gray-300'}`}
           >
-            <img src="src/Images/icons8-wallet-96.png" alt="" className="w-6" />
+            <img src="/icons8-wallet-96.png" alt="" className="w-6" />
             <p className="text-sm">Wallet</p>
           </NavLink>
         </div>
