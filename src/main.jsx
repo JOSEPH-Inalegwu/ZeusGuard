@@ -9,6 +9,7 @@ import Receive from './Components/Receive/Receive.jsx'
 import Buy from './Components/Buy/Buy.jsx'
 import Login from './Components/Login/Login.jsx'
 import Wallet from './Components/Wallet/Wallet.jsx'
+import Profile from './Components/Profile/Profile.jsx'
 
 const router = createBrowserRouter([
   { path: "/", element: <Login /> }, 
@@ -21,7 +22,8 @@ const router = createBrowserRouter([
       { path: "send", element: <Send /> },
       { path: "receive", element: <Receive /> },
       { path: "buy", element: <Buy /> },
-      { path: "wallet", element: <Wallet /> }
+      { path: "wallet", element: <Wallet /> },
+      { path: "profile", element: <Profile /> }
     ]
   }
 ])
