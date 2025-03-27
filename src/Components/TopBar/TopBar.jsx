@@ -1,17 +1,40 @@
 import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 const TopBar = () => {
+  const [profileImage, setProfileImage] = useState("/no-user.png");
+
+  useEffect(() => {
+    const loadProfileImage = () => {
+      const savedPic = localStorage.getItem("profilePic");
+      if (savedPic) {
+        setProfileImage(savedPic);
+      } else {
+        setProfileImage("/no-user.png");
+      }
+    };
+
+    loadProfileImage();
+
+    window.addEventListener("storage", loadProfileImage);
+
+    return () => {
+      window.removeEventListener("storage", loadProfileImage);
+    };
+  }, []);
+
   return (
     <>
-      <div className="navbar w-4/5 mx-auto bg-base-200 shadow-sm px-6 border border-gray-800 flex justify-between items-center top-0 sticky z-50">
+      <div className="navbar w-4/5 mx-auto bg-base-200 shadow-sm px-6 border border-gray-800 flex justify-between items-center top-0 sticky z-50 py-3">
         {/* User Profile */}
-        <div className="">
+        <div>
           <div className="dropdown dropdown-start">
             <div tabIndex={1} role="button" className="btn btn-ghost btn-circle avatar">
-              <div className="w-10 rounded-full">
-                <img
-                  alt="Profile Image"
-                  src="/profile.jpg"
+              <div>
+                <img 
+                alt="Profile" 
+                src={profileImage} 
+                className="border border-cyan-500 rounded-full"
                 />
               </div>
             </div>
@@ -37,11 +60,7 @@ const TopBar = () => {
             placeholder="Looking for Crypto"
             className="text-sm w-full outline-none"
           />
-          <img
-            src="/searchIcon.svg"
-            alt="Search Icon"
-            className="w-5 h-5 ml-2"
-          />
+          <img src="/searchIcon.svg" alt="Search Icon" className="w-5 h-5 ml-2" />
         </div>
 
         {/* Notification and Gift Icons */}
@@ -50,11 +69,7 @@ const TopBar = () => {
             {/* Notification Icon */}
             <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
               <div className="indicator">
-                <img
-                  src="/bell.svg"
-                  alt=""
-                  className="w-6"
-                />
+                <img src="/bell.svg" alt="" className="w-6" />
                 <span className="px-2 rounded-full indicator-item bg-red-500">8</span>
               </div>
             </div>
@@ -72,16 +87,13 @@ const TopBar = () => {
           </div>
           {/* Gift Icon */}
           <div>
-            <img src="/gift.svg"
-              alt=""
-              className="w-7"
-            />
+            <img src="/gift.svg" alt="" className="w-7" />
           </div>
         </div>
       </div>
-      <div style={{ paddingTop: '0px' }} /> 
+      <div style={{ paddingTop: "0px" }} />
     </>
-  )
-}
+  );
+};
 
 export default TopBar;

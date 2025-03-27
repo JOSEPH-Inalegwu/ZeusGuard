@@ -16,6 +16,7 @@ const ProfilePictureUpload = () => {
         const base64String = reader.result;
         setProfilePic(base64String);
         localStorage.setItem("profilePic", base64String); // Save to localStorage
+        window.dispatchEvent(new Event("storage")); // Dispatch event to notify other components
       };
       reader.readAsDataURL(file);
     }

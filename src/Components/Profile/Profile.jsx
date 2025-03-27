@@ -5,6 +5,7 @@ const Profile = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
   const [isSaved, setIsSaved] = useState(false);
+  const [showModal, setShowModal] = useState(false);
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
@@ -35,11 +36,13 @@ const Profile = () => {
       setIsSaving(false);
       setIsSaved(true);
       setIsEditing(false);
+      setShowModal(true); // Show modal after saving
+      setTimeout(() => setShowModal(false), 2000); // Auto-hide modal after 2 seconds
     }, 1000);
   };
 
   return (
-    <div className='w-4/5 mx-auto mt-2 bg-base-200 shadow-sm px-6 py-6 border border-gray-800'>
+    <div className='relative w-4/5 mx-auto mt-2 bg-base-200 shadow-sm px-6 py-6 border border-gray-800'>
       <div className='flex justify-between items-center'>
         <div className='flex items-center space-x-3'>
           <label className='cursor-pointer'>
@@ -51,15 +54,14 @@ const Profile = () => {
           </div>
         </div>
         <button
-        onClick={() => setIsEditing(true)}
-        disabled={isEditing}
-        className={`px-8 py-3 rounded-full transition ease-in-out ${
+          onClick={() => setIsEditing(true)}
+          disabled={isEditing}
+          className={`px-8 py-3 rounded-full transition ease-in-out ${
             isEditing ? "bg-blue-300 cursor-not-allowed" : "bg-blue-500 hover:bg-blue-700"
-        }`}
+          }`}
         >
-            {isEditing ? "Editing..." : "Edit"}
+          {isEditing ? "Editing..." : "Edit"}
         </button>
-
       </div>
       <div className='mt-10'>
         <form className='flex space-x-10'>
@@ -112,44 +114,52 @@ const Profile = () => {
           </div>
         </form>
         <div className="space-y-2 mt-10">
-            <button
-                onClick={handleSave}
-                disabled={!isEditing}
-                className={`bg-green-500 px-15 py-3 rounded-2xl transition ease-in-out flex items-center justify-center ${
-                !isEditing ? "opacity-50 cursor-not-allowed" : "hover:bg-green-600"
-                }`}
-            >
-                {isSaving ? (
-                <>
-                    <svg
-                    className="animate-spin h-5 w-5 mr-2 text-white"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    >
-                    <circle
-                        className="opacity-25"
-                        cx="12"
-                        cy="12"
-                        r="10"
-                        stroke="currentColor"
-                        strokeWidth="4"
-                    ></circle>
-                    <path
-                        className="opacity-75"
-                        fill="currentColor"
-                        d="M4 12a8 8 0 018-8v4l3-3-3-3v4a8 8 0 00-8 8H4z"
-                    ></path>
-                    </svg>
-                    Saving...
-                </>
-                ) : (
-                "Save"
-                )}
-            </button>
+          <button
+            onClick={handleSave}
+            disabled={!isEditing}
+            className={`bg-green-500 px-15 py-3 rounded-2xl transition ease-in-out flex items-center justify-center ${
+              !isEditing ? "opacity-50 cursor-not-allowed" : "hover:bg-green-600"
+            }`}
+          >
+            {isSaving ? (
+              <>
+                <svg
+                  className="animate-spin h-5 w-5 mr-2 text-white"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <circle
+                    className="opacity-25"
+                    cx="12"
+                    cy="12"
+                    r="10"
+                    stroke="currentColor"
+                    strokeWidth="4"
+                  ></circle>
+                  <path
+                    className="opacity-75"
+                    fill="currentColor"
+                    d="M4 12a8 8 0 018-8v4l3-3-3-3v4a8 8 0 00-8 8H4z"
+                  ></path>
+                </svg>
+                Saving...
+              </>
+            ) : (
+              "Save"
+            )}
+          </button>
         </div>
-
       </div>
+
+      {/* Modal */}
+      {showModal && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black/40 bg-opacity-50 backdrop-blur-sm">
+          <div className="text-white px-6 py-4 rounded-lg shadow-lg">
+            <p className="text-sm font-bold">Profile Updated</p>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
