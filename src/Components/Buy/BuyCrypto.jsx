@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import confetti from "canvas-confetti";
 
 const BuyCryptoSection = () => {
   const [selectedBroker, setSelectedBroker] = useState("binance");
@@ -41,24 +42,22 @@ const BuyCryptoSection = () => {
       alert("Incorrect PIN. Try again.");
       return;
     }
-  
+
     setShowConfirmModal(false);
     setIsBuying(true);
-  
+
     setTimeout(() => {
-      // Get current balance
       let currentBalance = parseFloat(localStorage.getItem("accountBalance")) || 45934;
-  
-      // Subtract $300 if the user has enough balance
+
       if (currentBalance >= 200) {
         currentBalance -= 300;
-        localStorage.setItem("accountBalance", currentBalance.toString()); // Save updated balance
+        localStorage.setItem("accountBalance", currentBalance.toString());
       } else {
         alert("Insufficient funds!");
         setIsBuying(false);
         return;
       }
-  
+
       const newPurchase = {
         broker: selectedBroker,
         method: buyMethod,
@@ -66,20 +65,25 @@ const BuyCryptoSection = () => {
         amount,
         timestamp: Date.now(),
       };
-  
+
       const updatedHistory = [newPurchase, ...buyHistory];
       setBuyHistory(updatedHistory);
       localStorage.setItem("buyHistory", JSON.stringify(updatedHistory));
-  
+
       setIsBuying(false);
+      confetti({
+        particleCount: 150,
+        spread: 70,
+        origin: { y: 0.6 },
+      });
+
       alert(`Successfully bought ${amount} ${selectedCoin}. New balance: $${currentBalance}`);
-  
+
       setAmount("");
       setPin("");
     }, 2000);
   };
-  
-  
+
   return (
     <section className="mt-6">
       <div className="flex items-center space-x-10">
@@ -145,17 +149,16 @@ const BuyCryptoSection = () => {
         Buy Cryptocurrency
       </button>
 
-
-     {/* Confirmation Modal */}
+      {/* Confirmation Modal */}
       {showConfirmModal && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black/40 bg-opacity-50 backdrop-blur-sm">
+        <div className="fixed inset-0 flex items-center justify-center bg-black/40 backdrop-blur-sm">
           <div className="p-6 rounded shadow-md w-96 bg-transparent border border-gray-600">
             <h2 className="text-lg font-semibold text-white">Enter Private Key</h2>
             <input
               type="password"
               value={pin}
               onChange={(e) => setPin(e.target.value)}
-              className="border border-gray-600 rounded p-2 w-full mt-2  text-white text-sm"
+              className="border border-gray-600 rounded p-2 w-full mt-2 text-white text-sm"
               placeholder="Enter PIN"
             />
             <div className="flex justify-end mt-4">
@@ -178,18 +181,15 @@ const BuyCryptoSection = () => {
 
       {/* Loading Simulation */}
       {isBuying && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black/40 bg-opacity-50 backdrop-blur-sm">
+        <div className="fixed inset-0 flex items-center justify-center bg-black/40 backdrop-blur-sm">
           <div className="p-6 rounded shadow-md w-96 bg-transparent border border-gray-600 text-white flex flex-col items-center">
-            {/* Spinner */}
             <div className="w-10 h-10 border-4 border-gray-300 border-t-green-500 rounded-full animate-spin"></div>
-            
             <p className="text-lg font-semibold text-center mt-4">Processing your purchase...</p>
           </div>
         </div>
       )}
 
-
-     {/* Buy History */}
+      {/* Buy History */}
       <div className="mt-10">
         <h3 className="text-lg font-semibold">Purchase History</h3>
         <ul className="mt-2 rounded text-sm">
@@ -200,14 +200,13 @@ const BuyCryptoSection = () => {
               <li key={index} className="border-b border-gray-600 py-5">
                 <span className="font-semibold mr-2 text-blue-400">
                   {new Date(entry.timestamp).toLocaleString()}:
-                </span> 
+                </span>
                 Bought {entry.amount} {entry.coin} via {entry.broker} ({entry.method})
               </li>
             ))
           )}
         </ul>
       </div>
-
     </section>
   );
 };
